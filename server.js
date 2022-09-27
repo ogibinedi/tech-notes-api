@@ -1,7 +1,20 @@
 const express = require('express');
 const app = express()
 const path = require('path');
+const { logger } = require('./middleware/logger');
+const errorHanlder = require('./middleware/errorHandler');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const corsOptions = require('./config/corsOptions');
 const PORT = process.env.PORT || 5000;
+
+app.use(logger);
+
+app.use(cors(corsOptions));
+
+app.use(express.json());
+
+app.use(cookieParser());
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 // The same way the middleware above can be shortly applied like line of code below:
@@ -19,5 +32,7 @@ app.all('*', (req, res) => {
         res.type('txt').send('404 Not Found');
     }
 });
+
+app.use(errorHanlder);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
