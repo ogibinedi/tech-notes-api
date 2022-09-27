@@ -3,7 +3,9 @@ const app = express()
 const path = require('path');
 const PORT = process.env.PORT || 5000;
 
-app.use('/', express.static(path.join(__dirname, '/public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
+// The same way the middleware above can be shortly applied like line of code below:
+// app.use(express.static('public'));
 
 app.use('/', require('./routes/root'));
 
