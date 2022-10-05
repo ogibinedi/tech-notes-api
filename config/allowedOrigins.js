@@ -1,8 +1,7 @@
 const allowedOrigins = [
-    'http://localhost:3000',
-    'http://localhost:5000',
-    'https://www.technotesapi.render.com',
-    'https://technotesapi.render.com',
+    'https://technotesapp.netlify.app',
+    'https://www.technotesapi.herokuapp.com',
+    'https://technotesapi.herokuapp.com',
 ];
 
 module.exports = allowedOrigins;
