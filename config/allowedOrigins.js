@@ -1,4 +1,4 @@
-const allowedOrigins = ["http://localhost:3000", "http://localhost:5000"];
+const allowedOrigins = ["https://technotesapp.netlify.app/", "https://technotesapi.herokuapp.com/"];
 
 module.exports = allowedOrigins;
 
